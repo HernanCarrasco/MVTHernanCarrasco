@@ -22,6 +22,6 @@ from MVT_HernanCarrasco.views import prueba_template1
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Familia/', mostrar_fam),
-    path('Plantilla', prueba_template1),
-    path('Crear_Familiar', crear_fam),
+    path('Plantilla/', prueba_template1),
+    path('Crear_Familiar/', crear_fam),
 ]
