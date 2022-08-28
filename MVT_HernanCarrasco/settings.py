@@ -55,7 +55,7 @@ ROOT_URLCONF = 'MVT_HernanCarrasco.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["C:/Users/herna/OneDrive/Desktop/python_projects/MVT_HernanCarrasco/Templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

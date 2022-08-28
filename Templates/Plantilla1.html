@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="color:red">Nombre= {{ nombre }} </h2>
+    <h2 style="color:brown">Apellido= {{ apellido }} </h2>
+
+    <h3>Lista de notas</h3>
+
+    {% for nota in lista %}
+
+    {% if nota > 5 %}
+
+    <h4 style="color:blue">nota= {{ nota }}</h4>
+
+    {% else %}
+
+    <h4 style="color:red">nota= {{ nota }}</h4>
+
+    {% endif %}
+    {% endfor %}
+
+    Pagina creada por el coño de tu madre.
+</body>
+</html>
