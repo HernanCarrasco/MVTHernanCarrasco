@@ -7,9 +7,7 @@ lista=[]
 
 def mostrar_fam(request):
     dict_cont={'lista':lista}
-    plantilla=loader.get_template('plantilla2.html')
-    documento=plantilla.render(dict_cont)
-    return HttpResponse(documento)
+    return render (request, 'AppProyecto/Familia.html', dict_cont)
 
 
 def crear_fam1(request):
@@ -64,3 +62,7 @@ def profesores(request):
 
 def entregables(request):
     return render (request, "AppProyecto/entregables.html")
+
+
+def cursoFormulario(request):
+    return render (request, "AppProyecto/CursoFormulario.html")
