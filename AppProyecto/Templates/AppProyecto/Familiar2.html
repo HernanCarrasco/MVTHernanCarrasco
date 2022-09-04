@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Familiar</title>
-</head>
-<body>
-    Crear familiar 2
-</body>
-</html>
+{% extends "AppProyecto/padre.html" %}
+{% load static %}
+{% block Titulo %} Familiar 2 ha sido creado "Hernan V." {% endblock %}
+
+
+
+{% block contenidoQueCambia %}
+<h1>Aqui se muesta la lista de entregables, falta crear entregables con form</h1>
+<p> Se heredó </p>
+
+<h3> En este hijo hay menos de 10 lineas de codigo</h3>
+
+{% endblock %}

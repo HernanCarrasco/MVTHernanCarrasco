@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Familiar, Curso
-from django.template import loader
+from AppProyecto.forms import * 
 
 lista=[]
 
@@ -64,5 +64,23 @@ def entregables(request):
     return render (request, "AppProyecto/entregables.html")
 
 
-def cursoFormulario(request):
-    return render (request, "AppProyecto/CursoFormulario.html")
+
+def CursoFormulario(request):
+
+    if request.method == "POST":
+
+        formulario_user = CursoFormulario(request.POST)
+
+        if formulario_user.is_valid():
+            info=formulario_user.cleaned_data
+            nombredelcurso=info["nombre"]
+            comisiondelcurso=info["comision"]
+            curso=Curso(nombre=nombredelcurso, comision=comisiondelcurso)
+            curso.save
+            return render (request, "AppProyecto/inicio.html")
+    else:
+        formulario=CursoForm()
+        return render (request, "AppProyecto/cursos.html", {"formulario":formulario})
+
+
+
