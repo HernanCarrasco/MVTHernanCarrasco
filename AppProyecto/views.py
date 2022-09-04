@@ -32,55 +32,55 @@ def crear_fam3(request):
     return HttpResponse(msg)
 
 
-
-def curso(request):
-
-    
-    nombre = request.POST.get("nombre")
-    comision = request.POST.get("comision")
-    curso = Curso(nombre=nombre, comision=comision)
-    curso.save()
-    curso=Curso(nombre="curso creado en el ejemplo", comision=0)
-    print("CREANDO CURSO")
-    curso.save()
-    
-    texto=f"curso creado"
-    return HttpResponse(texto)
-
 def inicio(request):
     return render (request, "AppProyecto/inicio.html")
 
-def cursos(request):
+def cursos(request):  # Idear como mostrar la lista de Cursos
     return render (request, "AppProyecto/cursos.html")
 
 
-def estudiantes(request):
+def estudiantes(request): # Idear como mostrar la lista de Estudiantes
     return render (request, "AppProyecto/estudiantes.html")
 
-def profesores(request):
+def profesores(request):  # Idear como mostrar la lista de Profesores
     return render (request, "AppProyecto/profesores.html")
 
-def entregables(request):
+def entregables(request):  # Idear como mostrar la lista de Entregables
     return render (request, "AppProyecto/entregables.html")
 
 
 
-def CursoFormulario(request):
+def crear_curso(request):
 
     if request.method == "POST":
 
-        formulario_user = CursoFormulario(request.POST)
+        formulario_user = CursoForm(request.POST)
 
         if formulario_user.is_valid():
             info=formulario_user.cleaned_data
             nombredelcurso=info["nombre"]
             comisiondelcurso=info["comision"]
             curso=Curso(nombre=nombredelcurso, comision=comisiondelcurso)
-            curso.save
-            return render (request, "AppProyecto/inicio.html")
+            curso.save()
+            return render (request, "AppProyecto/inicio.html", {'mensaje': "Curso Creado!"})
     else:
-        formulario=CursoForm()
-        return render (request, "AppProyecto/cursos.html", {"formulario":formulario})
+        formulario_user=CursoForm()
+        return render (request, "AppProyecto/crear_curso.html", {"formulario":formulario_user})
+
+def busqueda_comision(request):
+    return render (request, "AppProyecto/busqueda_comision.html")
+    
+def buscar(request):
+    if request.GET['comision']:
+        cursos=Curso.objects.filter(comision=request.GET['comision']) #trae de la BD los cursos que tenga la comision que se metió en la busqueda
+        return render(request, "AppProyecto/resultado_busqueda.html", {'cursos':cursos})
+    else:
+        return render(request, "AppProyecto/busqueda_comision.html", {'mensaje':"No se ingresó una comision"} )
+
+
+
+
+
 
 
 
